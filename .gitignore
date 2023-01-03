@@ -251,5 +251,10 @@ Temporary Items
 .apdisk
 
 # -------------------------------------
-
-dist/
+# Local ignored: Manually maintained
+# -------------------------------------
+data
+!src/data
+!tests/data
+.vscode
+globalConfig.json
