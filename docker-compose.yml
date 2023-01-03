@@ -1,0 +1,26 @@
+version: "3"
+services:
+  mongo:
+    container_name: mongo
+    image: mongo:6
+    restart: always
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
+  api:
+    container_name: billing-system
+    image: node:16
+    working_dir: /usr/src/billing-system
+    restart: always
+    command: bash -c "npm install --only=prod && npm run debug"
+    environment:
+      - MONGO_URL=mongodb://mongo:27017/billing-system
+    volumes:
+      - ./dist/:/usr/src/billing-system/dist/
+      - ./package.json:/usr/src/billing-system/package.json
+    ports:
+      - "5050:5050"
+      - "9222:9222"
+    links:
+      - mongo
