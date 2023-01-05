@@ -8,17 +8,8 @@
         John Doe,11111111111,johndoe@kanastra.com.br,1000000.00,2022-10-12,8291 
         ```
 2. Carregar numa base de dados em memória ou arquivo, para permitir a retomada dos avisos
-3. Rota: `POST /debtors`
+3. Rota: `POST /debts`
    - Arquivo anexo! 
 
 > ## Exceção: Lista inválida
-- Lista vazia
-- Qualquer um dos campos, em falta
-- Qualquer um dos campos de tipo diferente do esperado
-  - Data inválida
-  - ID negativo
-  - ...
-
-> ## Alertas
-- Dívida já quitada
-- Dívida registrada em data no futuro, avisar que não será cobrada
+- Corpo da requisição, vazio
