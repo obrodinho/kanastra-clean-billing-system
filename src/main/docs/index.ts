@@ -5,7 +5,7 @@ import schemas from './schemas'
 export default {
   openapi: '3.0.0',
   info: {
-    title: 'Kanastra C;ean Billing System',
+    title: 'Kanastra Clean Billing System',
     description: '',
     version: '1.0.0',
     contact: {

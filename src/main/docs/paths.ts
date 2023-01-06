@@ -5,5 +5,5 @@ import {
 
 export default {
   '/debts': addManyDebtPath,
-  '/payment': closeDebtPath
+  '/debt': closeDebtPath
 }

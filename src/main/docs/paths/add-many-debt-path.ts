@@ -1,6 +1,6 @@
 export const addManyDebtPath = {
   post: {
-    tags: ['CSV'],
+    tags: ['Debt'],
     summary: 'Adiciona uma lista de dívidas e prepara as notificações para os usuários',
     description: '',
     requestBody: {
@@ -8,7 +8,7 @@ export const addManyDebtPath = {
       content: {
         'text/csv': {
           schema: {
-            $ref: '#/schemas/debtList'
+            $ref: '#/schemas/debtListRequest'
           }
         }
       }
@@ -19,16 +19,13 @@ export const addManyDebtPath = {
         content: {
           'application/json': {
             schema: {
-              $ref: '#/schemas/debt'
+              $ref: '#/schemas/addManyDebtResponse'
             }
           }
         }
       },
       400: {
         $ref: '#/components/badRequest'
-      },
-      401: {
-        $ref: '#/components/unauthorized'
       },
       404: {
         $ref: '#/components/notFound'

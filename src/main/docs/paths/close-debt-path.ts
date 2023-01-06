@@ -1,15 +1,12 @@
 export const closeDebtPath = {
   put: {
-    security: [{
-      apiKeyAuth: []
-    }],
-    tags: ['Enquete'],
-    summary: 'API para criar a resposta de uma enquete',
-    description: 'Essa rota só pode ser executada por **usuários autenticados**',
+    tags: ['Debt'],
+    summary: 'Lança um pagamento para uma dívida registrada',
+    description: '',
     parameters: [{
       in: 'path',
-      name: 'surveyId',
-      description: 'ID da enquete a ser respondida',
+      name: 'debtId',
+      description: 'ID da dívida',
       required: true,
       schema: {
         type: 'string'
@@ -51,7 +48,7 @@ export const closeDebtPath = {
     security: [{
       apiKeyAuth: []
     }],
-    tags: ['Enquete'],
+    tags: ['Debt'],
     summary: 'API para consultar o resultado de uma enquete',
     description: 'Essa rota só pode ser executada por **usuários autenticados**',
     parameters: [{

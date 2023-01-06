@@ -1,10 +1,13 @@
 import {
   debtListSchema,
-  errorSchema, addManyDebtResponseSchema
+  errorSchema,
+  addManyDebtResponseSchema, closeDebtSchema
 } from './schemas/'
 
 export default {
-  debtList: debtListSchema,
+  closeDebtRequest: closeDebtSchema,
+  debtListRequest: debtListSchema,
+  // Responses
   addManyDebtResponse: addManyDebtResponseSchema,
   error: errorSchema
 }

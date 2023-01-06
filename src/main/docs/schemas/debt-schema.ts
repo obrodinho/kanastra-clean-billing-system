@@ -4,15 +4,23 @@ export const debtSchema = {
     name: {
       type: 'string'
     },
+    governmentId: {
+      type: 'string'
+    },
     email: {
       type: 'string'
     },
-    password: {
-      type: 'string'
+    debtAmount: {
+      type: 'number'
     },
-    passwordConfirmation: {
-      type: 'string'
+    debtDueDate: {
+      type: 'string',
+      example: '2022-10-12'
+    },
+    debtId: {
+      type: 'string',
+      example: '8291'
     }
   },
-  required: ['name', 'email', 'password', 'passwordConfirmation']
+  required: ['name', 'email', 'debtAmount', 'debtDueDate', 'debtId']
 }
