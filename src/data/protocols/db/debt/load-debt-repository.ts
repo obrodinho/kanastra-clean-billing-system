@@ -1,8 +1,15 @@
 export interface LoadDebtRepository {
-    getById: (debtId: string) => Promise<LoadDebtRepository.Result>
+  getById: (id: string) => Promise<LoadDebtRepository.Result>
 }
 
 export namespace LoadDebtRepository {
+    export const enum Status {
+        Unsettled = 0,
+        Settled = 1,
+        PartiallySettled = 2,
+        Overpaid = -1
+    }
+
     export type PaymentResult = {
         debtId: string
         paidAt: Date
@@ -17,6 +24,7 @@ export namespace LoadDebtRepository {
         governmentId: string
         name: string
         payments?: PaymentResult[]
+        status?: Status
     }
 
     export type Result = LoadDebtRepository.DebtResult
