@@ -8,8 +8,7 @@ export class AddManyDebtController implements Controller {
     private readonly validation: Validation,
     private readonly csvParser: CsvParser,
     private readonly addDebt: AddManyDebt
-  ) {
-  }
+  ) {}
 
   async handle (request: AddManyDebtController.Request): Promise<HttpResponse> {
     try {
