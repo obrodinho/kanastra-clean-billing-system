@@ -1,6 +1,4 @@
-import ObjectID from 'bson-objectid'
-
-export namespace Debt {
+export namespace DebtModelTypes {
   export const enum Status {
     Unsettled = 0,
     Settled = 1,
@@ -15,26 +13,26 @@ export namespace Debt {
     paidBy: string
   }
 
-  export type Model = {
-    id: ObjectID
+  export type Debt = {
+    _id: string
     debtId: string
     name: string
     email: string
     governmentId: string
     debtAmount: number
     debtDueDate: Date
-    status: Debt.Status
+    status: DebtModelTypes.Status
     payments: Payment[]
   }
 }
 
 export type DebtModel = {
-  id: ObjectID
+  id: string
   debtId: string
   name: string
   email: string
   governmentId: string
   debtAmount: number
   debtDueDate: Date
-  status: Debt.Status
+  status: DebtModelTypes.Status
 }
