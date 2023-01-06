@@ -1,6 +1,10 @@
 export const debtListSchema = {
-  type: 'file',
-  mimeType: 'text/csv',
-  example: 'name,governmentId,email,debtAmount,debtDueDate,debtId\n' +
-      'John Doe,11111111111,johndoe@kanastra.com.br,1000000.00,2022-10-12,8291'
+  type: 'object',
+  mimeType: 'application/json',
+  properties: {
+    fileContents: {
+      type: 'string'
+    }
+  },
+  example: {fileContents: 'name,governmentId,email,debtAmount,debtDueDate,debtId\nJohn Doe,11111111111,johndoe@kanastra.com.br,1000000.00,2022-10-12,8291'}
 }

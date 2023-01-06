@@ -6,7 +6,7 @@ export const addManyDebtPath = {
     requestBody: {
       required: true,
       content: {
-        'text/csv': {
+        'application/json': {
           schema: {
             $ref: '#/schemas/debtListRequest'
           }

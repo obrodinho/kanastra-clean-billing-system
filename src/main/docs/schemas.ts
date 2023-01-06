@@ -1,7 +1,8 @@
 import {
+  addManyDebtResponseSchema,
+  closeDebtSchema,
   debtListSchema,
-  errorSchema,
-  addManyDebtResponseSchema, closeDebtSchema
+  errorSchema
 } from './schemas/'
 
 export default {
