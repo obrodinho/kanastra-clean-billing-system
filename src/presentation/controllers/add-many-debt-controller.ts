@@ -1,9 +1,7 @@
 import { Controller, HttpResponse, Validation } from '@/presentation/protocols'
 import { badRequest, serverError, ok } from '@/presentation/helpers'
 import { CsvParser } from '@/utils/protocols'
-// import { DebtAlreadyNoted } from '@/presentation/errors'
 import { AddDebt, AddManyDebt } from '@/domain/usecases'
-import { InvalidParamError } from '@/presentation/errors'
 
 export class AddManyDebtController implements Controller {
   constructor (
@@ -21,16 +19,9 @@ export class AddManyDebtController implements Controller {
       }
 
       const { body } = request
-      if (body.length === 0) {
-        return badRequest(new InvalidParamError('body'))
-      }
 
       const debtRows = await this.csvParser.parse(body)
       const debts = debtRows as AddDebt.Params[]
-      if (debts.length === 0) {
-        return badRequest(new InvalidParamError('body'))
-      }
-
       const result = await this.addDebt.addMany(debts)
       const summary = Object.fromEntries(result)
 
