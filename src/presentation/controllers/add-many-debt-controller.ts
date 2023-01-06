@@ -18,9 +18,9 @@ export class AddManyDebtController implements Controller {
         return badRequest(error)
       }
 
-      const { body } = request
+      const { fileContents } = request
 
-      const debtRows = await this.csvParser.parse(body)
+      const debtRows = await this.csvParser.parse(fileContents)
       const debts = debtRows as AddDebt.Params[]
       const result = await this.addDebt.addMany(debts)
       const summary = Object.fromEntries(result)
@@ -38,6 +38,6 @@ export class AddManyDebtController implements Controller {
 
 export namespace AddManyDebtController {
   export type Request = {
-    body: any
+    fileContents: any
   }
 }
