@@ -20,7 +20,7 @@ services:
       - ./dist/:/usr/src/billing-system/dist/
       - ./package.json:/usr/src/billing-system/package.json
     ports:
-      - "5050:5050"
+      - "5988:5988"
       - "9222:9222"
     links:
       - mongo
