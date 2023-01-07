@@ -9,13 +9,3 @@ export class ValidationSpy implements Validation {
     return this.error
   }
 }
-
-// export class DebtValidationSpy implements Validation {
-//   error: Error = null
-//   debts: AddManyDebt.Params[]
-//
-//   validate (debts: AddManyDebt.Params[]): Error {
-//     this.debts = debts
-//     return this.error
-//   }
-// }

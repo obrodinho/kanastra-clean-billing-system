@@ -1,5 +1,5 @@
 import { DebtMongoRepository, MongoHelper } from '@/infra/db'
-import { mockAddManyDebtParams } from '@/tests/domain/mocks'
+import { mockAddManyDebtParams, mockCloseDebtParams } from '@/tests/domain/mocks'
 
 import { Collection } from 'mongodb'
 
@@ -49,6 +49,25 @@ describe('DebtMongoRepository', () => {
       const insertedIds = await sut.addMany(addDebtParams)
       expect(insertedIds).toEqual(debtIds)
       expect(insertedIds).toHaveLength(5)
+    })
+  })
+
+  describe('close()', () => {
+    test('Should update inserted debt on success', async () => {
+      const sut = makeSut()
+      const addDebtParams = mockAddManyDebtParams(1)
+      await sut.addMany(addDebtParams)
+      const [debt] = addDebtParams
+      const closeDebtParams = mockCloseDebtParams(debt.debtId)
+      const result = await sut.close(closeDebtParams)
+      expect(result).toBe(true)
+    })
+
+    test('Should not insert on non-existent debts', async () => {
+      const sut = makeSut()
+      const closeDebtParamsWithDebtSaved = mockCloseDebtParams()
+      const result = await sut.close(closeDebtParamsWithDebtSaved)
+      expect(result).toBe(false)
     })
   })
 })

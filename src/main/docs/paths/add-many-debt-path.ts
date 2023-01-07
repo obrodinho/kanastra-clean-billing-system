@@ -19,7 +19,7 @@ export const addManyDebtPath = {
         content: {
           'application/json': {
             schema: {
-              $ref: '#/schemas/addManyDebtResponse'
+              $ref: '#/schemas/operationResponse'
             }
           }
         }

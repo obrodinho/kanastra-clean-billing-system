@@ -1,4 +1,4 @@
-import { AddDebt, AddManyDebt } from '@/domain/usecases'
+import { AddDebt, AddManyDebt, CloseDebt } from '@/domain/usecases'
 
 export class AddDebtSpy implements AddDebt {
   params: AddDebt.Params
@@ -23,23 +23,13 @@ export class AddManyDebtSpy implements AddManyDebt {
   }
 }
 
-//
-// export class LoadDebtsSpy implements LoadDebts {
-//   accountId: string
-//   result = mockDebtModels()
-//
-//   async load (accountId: string): Promise<LoadDebts.Result> {
-//     this.accountId = accountId
-//     return this.result
-//   }
-// }
-//
-// export class CheckDebtByIdSpy implements CheckDebtById {
-//   id: string
-//   result = true
-//
-//   async checkById (id: string): Promise<CheckDebtById.Result> {
-//     this.id = id
-//     return this.result
-//   }
-// }
+export class CloseDebtSpy implements CloseDebt {
+  id: string
+  paymentData: CloseDebt.Params
+  result: CloseDebt.Result = true
+
+  async close (paymentData: CloseDebt.Params): Promise<CloseDebt.Result> {
+    this.paymentData = paymentData
+    return this.result
+  }
+}

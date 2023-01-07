@@ -1,5 +1,6 @@
-export const addManyDebtResponseSchema = {
+export const operationResponseSchema = {
   type: 'object',
+  required: ['success'],
   properties: {
     message: {
       type: 'string'
@@ -8,7 +9,7 @@ export const addManyDebtResponseSchema = {
       type: 'boolean'
     },
     summary: {
-      type: '[key: number]: string'
+      type: 'object'
     }
   }
 }

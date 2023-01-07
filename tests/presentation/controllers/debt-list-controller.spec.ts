@@ -8,13 +8,13 @@ import faker from 'faker'
 import * as fs from 'fs'
 import { resolve } from 'path'
 
-const mockRequest = (): AddManyDebtController.Request => {
+const mockRequest = (): AddManyDebtController.Params => {
   return {
     fileContents: ''
   }
 }
 
-const mockCsvRequest = (csvFilename): AddManyDebtController.Request => {
+const mockCsvRequest = (csvFilename): AddManyDebtController.Params => {
   const debtsFile = fs.readFileSync(csvFilename)
   return {
     fileContents: debtsFile
@@ -65,7 +65,7 @@ describe('Debt List Controller', () => {
     expect(httpResponse.body).toEqual(validationSpy.error)
   })
 
-  test('Should return 500 if HttpRequestValidation throws', async () => {
+  test('Should return 500 if Validation throws', async () => {
     const { sut, validationSpy } = makeSut()
     jest.spyOn(validationSpy, 'validate').mockImplementationOnce(throwError)
     const httpResponse = await sut.handle(mockRequest())

@@ -1,23 +1,14 @@
 export const closeDebtPath = {
-  put: {
+  post: {
     tags: ['Debt'],
     summary: 'Lança um pagamento para uma dívida registrada',
     description: '',
-    parameters: [{
-      in: 'path',
-      name: 'debtId',
-      description: 'ID da dívida',
-      required: true,
-      schema: {
-        type: 'string'
-      }
-    }],
     requestBody: {
       required: true,
       content: {
         'application/json': {
           schema: {
-            $ref: '#/schemas/saveSurveyParams'
+            $ref: '#/schemas/closeDebtRequest'
           }
         }
       }
@@ -28,13 +19,13 @@ export const closeDebtPath = {
         content: {
           'application/json': {
             schema: {
-              $ref: '#/schemas/surveyResult'
+              $ref: '#/schemas/operationResponse'
             }
           }
         }
       },
-      403: {
-        $ref: '#/components/forbidden'
+      400: {
+        $ref: '#/components/badRequest'
       },
       404: {
         $ref: '#/components/notFound'

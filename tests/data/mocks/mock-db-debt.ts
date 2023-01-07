@@ -55,12 +55,11 @@ export class UpdateDebtRepositorySpy implements UpdateDebtRepository {
 
 export class CloseDebtRepositorySpy implements CloseDebtRepository {
   id: string
-  changes: CloseDebtRepository.Params
+  paymentData: CloseDebtRepository.Params
   result: boolean
 
-  async close (id: string, changes: CloseDebtRepository.Params): Promise<CloseDebtRepository.Result> {
-    this.id = id
-    this.changes = changes
+  async close (paymentData: CloseDebtRepository.Params): Promise<CloseDebtRepository.Result> {
+    this.paymentData = paymentData
     return this.result
   }
 }

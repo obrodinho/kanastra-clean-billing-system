@@ -1,5 +1,5 @@
 import {
-  addManyDebtResponseSchema,
+  operationResponseSchema,
   closeDebtSchema,
   debtListSchema,
   errorSchema
@@ -9,6 +9,6 @@ export default {
   closeDebtRequest: closeDebtSchema,
   debtListRequest: debtListSchema,
   // Responses
-  addManyDebtResponse: addManyDebtResponseSchema,
+  operationResponse: operationResponseSchema,
   error: errorSchema
 }

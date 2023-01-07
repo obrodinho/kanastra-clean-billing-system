@@ -1,5 +1,5 @@
 export interface CloseDebtRepository {
-  close: (id: string, paymentData: CloseDebtRepository.Params) => Promise<CloseDebtRepository.Result>
+  close: (paymentData: CloseDebtRepository.Params) => Promise<CloseDebtRepository.Result>
 }
 
 export namespace CloseDebtRepository {

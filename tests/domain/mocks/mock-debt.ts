@@ -1,8 +1,8 @@
-import { AddDebt } from '@/domain/usecases'
+import { AddDebt, CloseDebt } from '@/domain/usecases'
 
 import faker from 'faker'
 
-export const mockAddDebtParams = (faker): AddDebt.Params => ({
+export const mockAddDebtParams = (): AddDebt.Params => ({
   debtId: faker.finance.account(9),
   debtAmount: faker.datatype.number({ max: 1e6, mi: 1e3, precision: 2 }),
   debtDueDate: faker.date.between('2019-01-01T00:00:00.000Z', '2022-12-31T00:00:00.000Z'),
@@ -17,5 +17,12 @@ export const mockAddDebtParams = (faker): AddDebt.Params => ({
 })
 
 export const mockAddManyDebtParams = (length): AddDebt.Params[] => {
-  return [...Array(length).keys()].map((_) => mockAddDebtParams(faker))
+  return [...Array(length).keys()].map((_) => mockAddDebtParams())
 }
+
+export const mockCloseDebtParams = (debtId?: string): CloseDebt.Params => ({
+  debtId: debtId || faker.finance.account(9),
+  paidAmount: faker.datatype.number({ max: 1e6, mi: 1e3, precision: 2 }),
+  paidAt: faker.date.between('2019-01-01T00:00:00.000Z', '2022-12-31T00:00:00.000Z'),
+  paidBy: faker.name.findName()
+})

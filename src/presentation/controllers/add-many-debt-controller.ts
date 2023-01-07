@@ -10,7 +10,7 @@ export class AddManyDebtController implements Controller {
     private readonly addDebt: AddManyDebt
   ) {}
 
-  async handle (request: AddManyDebtController.Request): Promise<HttpResponse> {
+  async handle (request: AddManyDebtController.Params): Promise<HttpResponse> {
     try {
       const error = this.validation.validate(request)
       if (error) {
@@ -36,7 +36,7 @@ export class AddManyDebtController implements Controller {
 }
 
 export namespace AddManyDebtController {
-  export type Request = {
+  export type Params = {
     fileContents: any
   }
 }
