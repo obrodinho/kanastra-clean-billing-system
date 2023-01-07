@@ -71,10 +71,7 @@ describe('Close Debt Controller', () => {
     closeDebtSpy.result = true
     const httpResponse = await sut.handle(request)
     expect(httpResponse).toEqual(
-      ok({
-        success: true,
-        message: 'Debt #8291 closed'
-      })
+      ok({ success: true })
     )
   })
 })
