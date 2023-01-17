@@ -16,8 +16,7 @@
     "test:integration": "npm test -- --watch -c jest.integration-config.js",
     "test:staged": "CI=true npm test -- --findRelatedTests",
     "test:ci": "CI=true npm test -- --coverage",
-    "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info",
-    "prepare": "husky install"
+    "test:coveralls": "npm run test:ci && coveralls < coverage/lcov.info"
   },
   "keywords": [],
   "author": "",

@@ -10,10 +10,10 @@ services:
       - "27017:27017"
   api:
     container_name: billing-system
-    image: node:16
+    image: node:16.19
     working_dir: /usr/src/billing-system
-    restart: always
-    command: bash -c "npm install --only=prod && npm run debug"
+    restart: unless-stopped
+    command: bash -c "npm install --omit=dev && npm run start"
     environment:
       - MONGO_URL=mongodb://mongo:27017/billing-system
     volumes:
